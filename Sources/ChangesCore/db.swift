@@ -31,11 +31,17 @@ public struct Database{
         let query = files.filter(name == fileName)
         let output = try? db.prepare(query)
         if let res = output {
-            let row = Array(res)[0]
-            let n = try! row.get(name)
-            let l = try! row.get(length)
-            let h = try! row.get(hash)
-            return Attributes(n: n, l: l, h: h)
+            let rows = Array(res)
+            if rows.isEmpty {
+                return nil
+            }
+            else {
+                let row = rows[0]
+                let n = try! row.get(name)
+                let l = try! row.get(length)
+                let h = try! row.get(hash)
+                return Attributes(n: n, l: l, h: h)
+            }
         } else {
             return nil
         }
