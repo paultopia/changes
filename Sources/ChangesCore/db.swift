@@ -18,8 +18,8 @@ public struct Database{
                     })
     }
 
-    public func insert(_ f: Attributes) -> Int64? {
-        let ins = files.insert(self.name <- f.name, self.length <- f.length, self.hash <- f.hash)
+    public func upsert(_ f: Attributes) -> Int64? {
+        let ins = files.insert(or: .replace, self.name <- f.name, self.length <- f.length, self.hash <- f.hash)
         let results = try? db.run(ins)
         return results
     }
@@ -39,10 +39,6 @@ public struct Database{
         } else {
             return nil
         }
-    }
-
-    func update(fileName: String, attributes: Attributes) {
-        print("not implemented")
     }
 
     func delete(_ name: String) {

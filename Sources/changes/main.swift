@@ -1,18 +1,28 @@
 import ChangesCore
 
-let firstText = getAttributes("txt")[0]
-let nom = firstText.name
-print("attempting to add: " + nom)
+func addText(text: Attributes, db: Database){
+    let nom = text.name
+    print("attempting to add: " + nom)
 
+    if let inserted = db.upsert(text) {
+        print("insert succeeded")
+    } else {
+        print("insert failed!")
+    }
+
+    if let retreived = db.fetch(nom) {
+        print(retreived)
+    } else {
+        print("retrieval failed!")
+    }
+
+}
+
+
+
+let texts = getAttributes("txt")
 let db = Database()
-if let inserted = db.insert(firstText) {
-    print("insert succeeded")
-} else {
-    print("insert failed!")
+for text in texts {
+    addText(text: text, db: db)
 }
 
-if let retreived = db.fetch(nom) {
-    print(retreived)
-} else {
-    print("retrieval failed!")
-}
