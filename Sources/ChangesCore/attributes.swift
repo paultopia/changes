@@ -1,5 +1,5 @@
 public struct Attributes {
-    let name: String
+    public let name: String
     var length: Int
     var hash: Int
     var changed = false
@@ -10,4 +10,5 @@ public struct Attributes {
         length = getLength(fileName)
         hash = getHash(fileName)!
     }
+
 }
