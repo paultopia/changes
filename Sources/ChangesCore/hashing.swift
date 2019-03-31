@@ -1,10 +1,11 @@
 import Foundation
 import xxHash_Swift
 
-public func sayBye() {
-    print("bye computer")
-}
-
-public func getLength(_ fileName: String) -> Int {
-    return try! FileManager.default.attributesOfItem(atPath: fileName)[FileAttributeKey.size] as! Int
+func getHash(_ filename: String) -> Int? {
+    let data = try? String(contentsOfFile: filename)
+    guard let toHash = data else {
+        return nil
+    }
+    let hash = xxHash32.digest(toHash)
+    return Int(hash)
 }
