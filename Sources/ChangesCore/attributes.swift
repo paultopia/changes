@@ -1,4 +1,4 @@
-public struct Attributes {
+public struct Attributes: Equatable {
     public let name: String
     var length: Int
     var hash: Int
