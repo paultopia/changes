@@ -6,6 +6,8 @@ currently works in debug builds, but build fails when trying to create a binary 
 
 The last couple commits are kind of random efforts to fix this by downgrading swift versions, creating an xcode project and trying to figure out how to build in xcode (how on earth DO you build a binary with everything statically linked in, in xcode?!), etc.
 
+n.b. building does appear to work with xcode, by doing swift package generate-xcodeproj, then opening up the xcode project, and making changes to the build settings in xcode to compile c modules as described [in this issue](https://github.com/stephencelis/SQLite.swift/issues/828), then selecting product -> build for -> running from the xcode menu.  This generates a binary that I'm putting in releases... but I can't promise that the binary will be executable on your machine.  It might not have the libraries linked in in the right way; I have no idea what xcode's build commands do.  Maybe it'll work.  Maybe it won't. Works on my machine. 
+
 ## Usage
 
 ```
