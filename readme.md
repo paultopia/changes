@@ -2,6 +2,10 @@
 
 Small CLI to produce a list of files that were added or changed since last run in directory, by extension.  In Swift, so probably only works on Mac (might work on Linux?  Maybe?  Dunno.).  Intended for use with a static site generator or the like to stop wasting time on redundant builds.
 
+currently works in debug builds, but build fails when trying to create a binary with everything statically linked in, as described in [this issue](https://github.com/stephencelis/SQLite.swift/issues/896) I'm pretty sure it's SQLite.
+
+The last couple commits are kind of random efforts to fix this by downgrading swift versions, creating an xcode project and trying to figure out how to build in xcode (how on earth DO you build a binary with everything statically linked in, in xcode?!), etc.
+
 ## Usage
 
 ```
