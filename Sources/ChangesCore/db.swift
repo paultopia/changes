@@ -24,13 +24,18 @@ public struct Database{
         return results
     }
 
-    public func fetch(_ fileName: String) -> Row? {
+    public func fetch(_ fileName: String) -> Attributes? {
+        let name = self.name  // seemingly necessarily boilerplate to accommodate silliness with sqlite library column names
+        let hash = self.hash
+        let length = self.length 
         let query = files.filter(name == fileName)
         let output = try? db.prepare(query)
         if let res = output {
             let row = Array(res)[0]
-            return row
-            //return Attributes(row)
+            let n = try! row.get(name)
+            let l = try! row.get(length)
+            let h = try! row.get(hash)
+            return Attributes(n: n, l: l, h: h)
         } else {
             return nil
         }
@@ -45,10 +50,3 @@ public struct Database{
     }
 }
 
-// extension Attributes {
-//     init(_ row: Row){
-//         name = row.name
-//         length = row.length
-//         hash = row.hash
-//     }
-// }

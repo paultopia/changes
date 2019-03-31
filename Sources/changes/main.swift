@@ -6,12 +6,13 @@ print("attempting to add: " + nom)
 
 let db = Database()
 if let inserted = db.insert(firstText) {
-    let fromDB = db.fetch(nom)
-    if let retreived = fromDB {
-        print(retreived)
-    } else {
-        print("retrieval failed!")
-    }
+    print("insert succeeded")
 } else {
     print("insert failed!")
+}
+
+if let retreived = db.fetch(nom) {
+    print(retreived)
+} else {
+    print("retrieval failed!")
 }

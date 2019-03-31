@@ -10,5 +10,10 @@ public struct Attributes {
         length = getLength(fileName)
         hash = getHash(fileName)!
     }
-
+    
+    init(n: String, l: Int, h: Int){
+        name = n
+        length = l
+        hash = h
+    }
 }
