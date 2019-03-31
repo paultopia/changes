@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SQLite.swift",
+        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "210098546d59678f720e4ef67f8b562acfebbdb0",
+          "version": "0.11.5"
+        }
+      },
+      {
+        "package": "xxHash-Swift",
+        "repositoryURL": "https://github.com/daisuke-t-jp/xxHash-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "a6fb868aea2b2c5b443d43ad57ae77699a86ffe2",
+          "version": "1.0.10"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
