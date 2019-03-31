@@ -2,6 +2,8 @@
 
 Small CLI to produce a list of files that were added or changed since last run in directory, by extension.  In Swift, so probably only works on Mac (might work on Linux?  Maybe?  Dunno.).  Intended for use with a static site generator or the like to stop wasting time on redundant builds.
 
+(currently blows up on markdown files for unknown reasons... possibly the hashing algorithm?  throws an illegal instruction error, so something that I've forced...)
+
 
 ## Usage
 
