@@ -18,13 +18,13 @@ public struct Database{
                     })
     }
 
-    // func insert(_ f: Attributes) -> Int64? {
-    //     let ins = files.insert(self.name <- f.name, self.length <- f.length, self.hash <- f.hash)
-    //     let results = try? db.run(ins)
-    //     return results
-    // }
+    public func insert(_ f: Attributes) -> Int64? {
+        let ins = files.insert(self.name <- f.name, self.length <- f.length, self.hash <- f.hash)
+        let results = try? db.run(ins)
+        return results
+    }
 
-    func fetch(_ fileName: String) -> Row? {
+    public func fetch(_ fileName: String) -> Row? {
         let query = files.filter(name == fileName)
         let output = try? db.prepare(query)
         if let res = output {
